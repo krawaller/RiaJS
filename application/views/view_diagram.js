@@ -3,7 +3,7 @@ var view_diagram = Backbone.View.extend
 	DrawDiagram: function(a_placeholderName, a_incomeValue, a_outcomeValue)
 	{	
 		var outputDiagram = new Bluff.Pie(a_placeholderName, '400x400');
-    	outputDiagram.title = 'Skillnader mellan inkomster och utgifter';
+		outputDiagram.title = 'Skillnader mellan inkomster och utgifter';
 
 		outputDiagram.set_theme
 		({
