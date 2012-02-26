@@ -18,22 +18,19 @@ var view_start = Backbone.View.extend
 
 	addBudgetPost: function()
 	{
-		this.input_name = this.$('#input_name').val();
 		this.select_category = this.$('#select_category').val();
 		this.input_value = this.$('#input_value').val();
 		this.select_type = this.$('#select_type').val();
 
-		if (this.input_name != '' && this.select_category != '' && this.input_value != '' && this.select_type != '')
+		if (this.select_category != '' && this.input_value != '' && this.select_type != '')
 		{
 			this.collection_budget_posts.add
 			({
-				name: this.input_name, 
 				category: this.select_category, 
 				value: this.input_value,
 				type: this.select_type
 			});
 	
-			this.$('#input_name').val('');
 			this.$('#select_type').val('');
 			this.$('#input_value').val('');
 			this.$('#select_type').val('');
@@ -76,7 +73,6 @@ var view_start = Backbone.View.extend
 			this.$('table').append
 			(
 				'<tr>'
-				+ '<td>' + a_post.name + '</td>'
 				+ '<td>' + a_post.category + '</td>'
 				+ '<td>' + a_post.value + '</td>'
 				+ '<td>' + a_post.type + '</td>'
