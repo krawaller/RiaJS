@@ -1,0 +1,22 @@
+body
+{
+	background-color: #ffffff;
+	text-align: center;
+}
+
+#baseContainer
+{
+	margin: 0 auto;
+	width: 500px;
+}
+
+.left
+{
+	float: left;
+}
+
+.right
+{
+	float: right;
+}
+

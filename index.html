@@ -1,10 +1,89 @@
 <!DOCTYPE html>
 	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
 		<title>An idiots budget</title>
+		<link rel="stylesheet" type="text/css" href="application/internal/css/default.css" />
 		<script type="text/javascript" src="application/external/javascript/libs/headjs/head.js"></script>
-		<script type="text/javascript" src="application/internal/master.js"></script>
+		<script type="text/javascript" src="application/internal/javascript/master.js"></script>
 	</head>
 	<body>
-		<div class="baseContainer"></div>
+		<!-- Template for the default view / first view -->
+		<script type="text/template" id="start">
+			<p>
+				<div class="left"><a href="/#createincome">Lägg till ny inkomst</a></div>
+				<div class="right"><a href="/#createoutcome">Lägg till ny utgift</a></div>
+			</p>
+
+			<p>
+				<br />
+           		<canvas id="income_outcome_graph" width="500" height="500"></canvas>
+			</p>
+
+			<p>
+				<table>
+					<tr>
+						<th>Kategori</th>
+						<th>Typ</th>
+						<th>Värde</th>
+						<th>&nbsp;</th>
+					</tr>
+				</table>
+			</p>
+        </script>	
+
+		<!-- Template for the add/update income/outcome view -->
+		<script type="text/template" id="create_update_income_outcome">
+			<h3><%= head_label %></h3>
+			<p>
+				<label>Namn:</label>
+				<input type="text" id="input_name" />
+			</p>
+
+			<p>
+				<label>Typ:</label>
+				<select id="select_type">
+					<option>Alkoholhaltiga drycker</option>
+					<option>Bensin</option>
+					<option>EL</option>
+					<option>Gardiner</option>
+					<option>Hemtelefoni</option>
+					<option>Internet</option>
+					<option>Kläder</option>
+					<option>Lön</option>
+					<option>Mat</option>
+					<option>Mobiltelefoni</option>
+					<option>Pension</option>
+					<option>Prydnadssaker</option>
+					<option>Restaurangmat</option>
+					<option>Skor</option>
+					<option>Sparande</option>
+					<option>Tidningar</option>
+					<option>Värme</option>
+					<option>Övrigt</option>
+				</select>
+			</p>	
+
+			<p>
+				<label>Värde:</label>
+				<input type="text" id="input_value" />
+			</p>	
+
+			<p>
+				<input type="submit" id="send_post" value="<%= button_label %>" />
+			</p>			
+		</script>	
+
+		<!-- Template for the delete view -->
+		<script type="text/template" id="delete">
+			<p>
+				<input type="submit" value="Ja" />
+				<input type="submit" value="Nej" />
+			</p>
+		</script>	
+
+		<div id="baseContainer">
+			<h1>An idiots budget</h1>	
+			<div id="basePlaceholder"></div>		      
+		</div>
 	</body>
 </html>
