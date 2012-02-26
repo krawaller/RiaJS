@@ -1,13 +1,15 @@
 body
 {
 	background-color: #ffffff;
+	font-family: verdana;
+	font-size: 10px;
 	text-align: center;
 }
 
-.baseContainer
+.baseContainer, table
 {
 	margin: 0 auto;
-	width: 500px;
+	width: 600px;
 }
 
 .left
@@ -24,10 +26,9 @@ body
 
 input[type=text], select
 {
-	width: 137px;
+	width: 120px;
 	border: 1px solid #cccccc;
 }
-
 
 .fail
 {
