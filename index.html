@@ -11,47 +11,35 @@
 		<script type="text/template" id="start">
 			<p>
 				<div class="left">
-					<label>Namn:</label><br />
-					<input type="text" id="input_name" />
-				</div>
-
-				<div class="left">
 					<label>Kategori:</label><br />
 					<select id="select_category">
 						<option selected="selected"></option>
-						<option>Alkoholhaltiga drycker</option>
-						<option>Bensin</option>
-						<option>EL</option>
-						<option>Gardiner</option>
-						<option>Hemtelefoni</option>
-						<option>Internet</option>
-						<option>Kläder</option>
-						<option>Lön</option>
-						<option>Mat</option>
-						<option>Mobiltelefoni</option>
-						<option>Pension</option>
-						<option>Prydnadssaker</option>
-						<option>Restaurangmat</option>
-						<option>Skor</option>
-						<option>Sparande</option>
-						<option>Tidningar</option>
-						<option>Värme</option>
-						<option>Övrigt</option>
+						<option title="Utgift" value="Alkoholhaltiga drycker">Alkoholhaltiga drycker</option>
+						<option title="Utgift" value="Bensin">Bensin</option>
+						<option title="Utgift" value="EL">EL</option>
+						<option title="Utgift" value="Försäkringar">Försäkringar</option>
+						<option title="Utgift" value="Gardiner">Gardiner</option>
+						<option title="Inkomst" value="Gåvor">Gåvor</option>
+						<option title="Utgift" value="Hemtelefoni">Hemtelefoni</option>
+						<option title="Utgift" value="Internet">Internet</option>
+						<option title="Utgift" value="Kläder">Kläder</option>
+						<option title="Inkomst" value="Lön">Lön</option>
+						<option title="Utgift" value="Mat">Mat</option>
+						<option title="Utgift" value="Mediciner">Mediciner</option>
+						<option title="Utgift" value="Mobiltelefoni">Mobiltelefoni</option>
+						<option title="Inkomst" value="Pension">Pension</option>
+						<option title="Utgift" value="Prydnadssaker">Prydnadssaker</option>
+						<option title="Utgift" value="Restaurangmat">Restaurangmat</option>
+						<option title="Utgift" value="Skor">Skor</option>
+						<option title="Inkomst" value="Sparande">Sparande</option>
+						<option title="Utgift" value="Tidningar">Tidningar</option>
+						<option title="Utgift" value="Värme">Värme</option>
 					</select>
 				</div>
 
 				<div class="left">
 					<label>Värde (kr):</label><br />
 					<input type="text" id="input_value" />
-				</div>
-
-				<div class="left">
-					<label>Typ:</label><br />
-					<select id="select_type">
-						<option selected="selected"></option>
-						<option>Inkomst</option>
-						<option>Utgift</option>
-					</select>
 				</div>
 
 				<div class="left">
@@ -66,14 +54,16 @@
 			</p>
 
 			<p>
-				<table>
-					<tr>
-						<th>Namn:</th>
-						<th>Kategori:</th>
-						<th>Typ:</th>
-						<th>Värde:</th>
-						<th>&nbsp;</th>
-					</tr>
+				<table id="budgetItems">
+					<thead>
+						<tr>
+							<th>Kategori:</th>
+							<th scope="col">Värde:</th>
+							<th>&nbsp;</th>
+						</tr>
+					</thead>
+					<tbody>
+					</tbody>
 				</table>
 			</p>
         </script>	

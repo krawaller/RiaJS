@@ -20,20 +20,17 @@ var view_start = Backbone.View.extend
 	{
 		this.select_category = this.$('#select_category').val();
 		this.input_value = this.$('#input_value').val();
-		this.select_type = this.$('#select_type').val();
 
-		if (this.select_category != '' && this.input_value != '' && this.select_type != '')
+		if (this.select_category != '' && this.input_value != ')
 		{
 			this.collection_budget_posts.add
 			({
 				category: this.select_category, 
 				value: this.input_value,
-				type: this.select_type
 			});
 	
-			this.$('#select_type').val('');
+			this.$('#select_category').val('');
 			this.$('#input_value').val('');
-			this.$('#select_type').val('');
 
 			this.fillWithData();
 		}
@@ -45,20 +42,17 @@ var view_start = Backbone.View.extend
 	
 	drawDiagram: function(a_incomes, a_outcomes)
 	{
-		$('income_outcome_graph').empty();
-
-		var outputDiagram = new Bluff.Pie('income_outcome_graph', '500x500');
+		outputDiagram = new Bluff.Pie('income_outcome_graph', '500x500');
 
 		outputDiagram.set_theme
 		({
-	    	colors: ['#12ff00', '#ff0000'],
 	    	marker_color: '#000000',
 	    	font_color: '#000000',
 	    	background_colors: ['#ffffff', '#ffffff']
 	  	});
 	
-	    outputDiagram.data('Inkomster', [a_incomes]);
-	    outputDiagram.data('Utgifter', [a_outcomes]);
+	    outputDiagram.data('Inkomster', [parseInt(a_incomes)], '#00ff00');
+	    outputDiagram.data('Utgifter', [parseInt(a_outcomes)], '#ff0000');
 	
 	    outputDiagram.draw();
 	},
@@ -68,6 +62,8 @@ var view_start = Backbone.View.extend
 		incomes = 0;
 		outcomes = 0;
 
+		$('tbody').html('');
+
 		_.each(this.collection_budget_posts.toJSON(), function(a_post)
 		{
 			this.$('table').append
@@ -75,17 +71,16 @@ var view_start = Backbone.View.extend
 				'<tr>'
 				+ '<td>' + a_post.category + '</td>'
 				+ '<td>' + a_post.value + '</td>'
-				+ '<td>' + a_post.type + '</td>'
 				+ '</tr>'
 			);
 
 			if (a_post.type == 'Inkomst')
 			{
-				this.incomes = a_post.value; 
+				incomes = a_post.value; 
 			}
 			else if (a_post.type == 'Utgift')
 			{
-				this.outcomes = a_post.value; 
+				outcomes = a_post.value; 
 			}
 		});
 
