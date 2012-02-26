@@ -10,12 +10,49 @@
 		<!-- Template for the default view / first view -->
 		<script type="text/template" id="start">
 			<p>
-				<div class="left"><a href="/#createincome">Lägg till ny inkomst</a></div>
-				<div class="right"><a href="/#createoutcome">Lägg till ny utgift</a></div>
+				<div class="left">
+					<label>Namn:</label><br />
+					<input type="text" id="input_name" />
+				</div>
+
+				<div class="left">
+					<label>Typ:</label><br />
+					<select id="select_type">
+						<option selected="selected"></option>
+						<option>Alkoholhaltiga drycker</option>
+						<option>Bensin</option>
+						<option>EL</option>
+						<option>Gardiner</option>
+						<option>Hemtelefoni</option>
+						<option>Internet</option>
+						<option>Kläder</option>
+						<option>Lön</option>
+						<option>Mat</option>
+						<option>Mobiltelefoni</option>
+						<option>Pension</option>
+						<option>Prydnadssaker</option>
+						<option>Restaurangmat</option>
+						<option>Skor</option>
+						<option>Sparande</option>
+						<option>Tidningar</option>
+						<option>Värme</option>
+						<option>Övrigt</option>
+					</select>
+				</div>
+
+				<div class="left">
+					<label>Värde:</label><br />
+					<input type="text" id="input_value" />
+				</div>
+
+				<div class="left">
+					<br />
+					<input type="submit" id="send_post" value="Lägg till" />
+				</div>				
 			</p>
 
 			<p>
-				<br />
+				<br /><br /><br />
            		<canvas id="income_outcome_graph" width="500" height="500"></canvas>
 			</p>
 
@@ -31,57 +68,7 @@
 			</p>
         </script>	
 
-		<!-- Template for the add/update income/outcome view -->
-		<script type="text/template" id="create_update_income_outcome">
-			<h3><%= head_label %></h3>
-			<p>
-				<label>Namn:</label>
-				<input type="text" id="input_name" />
-			</p>
-
-			<p>
-				<label>Typ:</label>
-				<select id="select_type">
-					<option>Alkoholhaltiga drycker</option>
-					<option>Bensin</option>
-					<option>EL</option>
-					<option>Gardiner</option>
-					<option>Hemtelefoni</option>
-					<option>Internet</option>
-					<option>Kläder</option>
-					<option>Lön</option>
-					<option>Mat</option>
-					<option>Mobiltelefoni</option>
-					<option>Pension</option>
-					<option>Prydnadssaker</option>
-					<option>Restaurangmat</option>
-					<option>Skor</option>
-					<option>Sparande</option>
-					<option>Tidningar</option>
-					<option>Värme</option>
-					<option>Övrigt</option>
-				</select>
-			</p>	
-
-			<p>
-				<label>Värde:</label>
-				<input type="text" id="input_value" />
-			</p>	
-
-			<p>
-				<input type="submit" id="send_post" value="<%= button_label %>" />
-			</p>			
-		</script>	
-
-		<!-- Template for the delete view -->
-		<script type="text/template" id="delete">
-			<p>
-				<input type="submit" value="Ja" />
-				<input type="submit" value="Nej" />
-			</p>
-		</script>	
-
-		<div id="baseContainer">
+		<div class="baseContainer">
 			<h1>An idiots budget</h1>	
 			<div id="basePlaceholder"></div>		      
 		</div>

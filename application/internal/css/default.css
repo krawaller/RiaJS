@@ -4,7 +4,7 @@ body
 	text-align: center;
 }
 
-#baseContainer
+.baseContainer
 {
 	margin: 0 auto;
 	width: 500px;
@@ -13,6 +13,8 @@ body
 .left
 {
 	float: left;
+	margin-left: 5px;
+	text-align: left;
 }
 
 .right
@@ -20,3 +22,19 @@ body
 	float: right;
 }
 
+input[type=text], select
+{
+	width: 137px;
+	border: 1px solid #cccccc;
+}
+
+
+.fail
+{
+	background-color: #ff0000;
+}
+
+.good
+{
+	background-color: #ffffff;
+}

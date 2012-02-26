@@ -1,9 +1,16 @@
 var view_start = Backbone.View.extend
 ({
-	initialize: function()
+	initialize: function(a_placeholder, a_collection)
 	{
 		this.template = _.template($("#start").html());
+		this.collection_budget_posts = a_collection;
+		this.incomes = 0;
+		this.outcomes = 0;
 	},
+
+	events: {
+    	"click #send_post": "addBudgetPost"
+  	},
 
 	render: function()
 	{
@@ -19,9 +26,30 @@ var view_start = Backbone.View.extend
 	    	background_colors: ['#ffffff', '#ffffff']
 	  	});
 	
-	    outputDiagram.data("Inkomster", [40000]);
-	    outputDiagram.data("Utgifter", [8000]);
+	    outputDiagram.data("Inkomster", [this.incomes]);
+	    outputDiagram.data("Utgifter", [this.outcomes]);
 	
 	    outputDiagram.draw();
+	},
+
+	addBudgetPost: function()
+	{
+		if (this.$("#input_name").val() != '' && this.$("#select_type").val() != '' && this.$("#input_value").val() != '')
+		{
+			this.collection_budget_posts.add
+			({
+				name: this.$("#input_name").val(), 
+				type: this.$("#select_type").val(), 
+				value: this.$("#input_value").val()
+			});
+	
+			this.$("#input_name").val('');
+			this.$("#select_type").val('');
+			this.$("#input_value").val('');
+		}
+		else
+		{
+			alert("Du måste fylla i samtliga fält!");
+		}
 	}
 });

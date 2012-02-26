@@ -23,13 +23,11 @@ var router_master = Backbone.Router.extend
 
 	initialize: function()
 	{
-		this.view_start = new view_start({el: $(this.placeholder)})
+		this.collection_budget_posts = new collection_budget_posts();
+		//this.collection_budget_posts.fetch();
+
+		this.view_start = new view_start({el: $(this.placeholder)}, this.collection_budget_posts);
         this.cached_views.view_start = this.view_start;
-
-		this.view_create_update = new view_create_update({el: $(this.placeholder)})
-        this.cached_views.view_create_update = this.view_create_update;
-
-		this.collection_budget_post = new collection_budget_post();
 	},
 
 	start: function()
