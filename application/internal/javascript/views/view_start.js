@@ -100,6 +100,12 @@ var view_start = Backbone.View.extend
 			);
 		});
 
+		if (incomes != 0 || outcomes != 0)
+		{
+			$('#budgetSummaryPlaceholder').show();
+			$('#budgetSummary').html((parseInt(incomes) - parseInt(outcomes)) + ' kr');
+		}
+
 		this.drawDiagram(incomes, outcomes);
 	}
 });

@@ -12,6 +12,10 @@ body
 	margin: 20px auto;
 	padding: 20px;
 	width: 600px;
+	-moz-border-radius: 50px;
+    -webkit-border-radius: 50px;
+    -khtml-border-radius: 50px;
+    border-radius: 50px;
 }
 
 .left
@@ -42,4 +46,14 @@ input[type=text], select
 {
 	background-color: #ff0000;
 	color: #ffffff;
+}
+
+#budgetSummaryPlaceholder
+{
+	display: none;
+}
+
+#budgetSummary
+{
+	font-size: 30px;
 }
