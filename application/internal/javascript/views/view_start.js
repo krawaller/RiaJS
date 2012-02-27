@@ -8,12 +8,21 @@ var view_start = Backbone.View.extend
 
 	events: {
     	'click #send_post': 'addBudgetPost',
+		"keypress #input_value": "addBudgetPostWithKey"
   	},
 
 	render: function()
 	{
 		$(this.el).html(this.template);
 		this.fillWithData();
+	},
+
+	addBudgetPostWithKey: function(a_key)
+	{
+		if (a_key.keyCode == 13)
+		{
+			this.addBudgetPost();
+		}
 	},
 
 	addBudgetPost: function()

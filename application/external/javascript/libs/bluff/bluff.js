@@ -81,7 +81,7 @@ Bluff.Base = new JS.Class({
     DATA_COLOR_INDEX: 2,
     
     // Space around text elements. Mostly used for vertical spacing
-    LEGEND_MARGIN: 20,
+    LEGEND_MARGIN: 40,
     TITLE_MARGIN: 20,
     LABEL_MARGIN: 10,
     DEFAULT_MARGIN: 20,
@@ -1686,7 +1686,7 @@ Bluff.Pie = new JS.Class(Bluff.Base, {
         radius = (Math.min(this._graph_width, this._graph_height) / 2.0) * 0.8,
         top_x = this._graph_left + (this._graph_width - diameter) / 2.0,
         center_x = this._graph_left + (this._graph_width / 2.0),
-        center_y = this._graph_top + (this._graph_height / 2.0) - 10, // Move graph up a bit
+        center_y = this._graph_top + (this._graph_height / 2.0) + 20, // Move graph up a bit
         total_sum = this._sums_for_pie(),
         prev_degrees = this.zero_degree,
         index = this.klass.DATA_VALUES_INDEX;
@@ -1711,8 +1711,8 @@ Bluff.Pie = new JS.Class(Bluff.Base, {
         
         if (label_val >= this.hide_labels_less_than) {
           label_string = this._label(data_row[this.klass.DATA_VALUES_INDEX][0]);
-          this._draw_label(center_x, center_y, half_angle,
-                            radius + (radius * this.klass.TEXT_OFFSET_PERCENTAGE) + 15,
+          this._draw_label(center_x - 10, center_y, half_angle,
+                            radius + (radius * this.klass.TEXT_OFFSET_PERCENTAGE) + 10,
                             label_string + ' kr ',
                             data_row, i);
         }
