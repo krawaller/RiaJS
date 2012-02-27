@@ -12,7 +12,8 @@ head.js
 	srcpath + "routers/router_master.js",
 	srcpath + "views/view_start.js",
 	srcpath + "collections/collection_budget_posts.js",
-	srcpath + "models/model_budget_post.js"
+	srcpath + "models/model_budget_post.js",
+	srcpath + "views/view_budget_post.js"
 );
 
 head.ready(function()

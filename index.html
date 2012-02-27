@@ -14,26 +14,26 @@
 					<label>Kategori:</label><br />
 					<select id="select_category">
 						<option selected="selected"></option>
-						<option title="Utgift" value="Alkoholhaltiga drycker">Alkoholhaltiga drycker</option>
-						<option title="Utgift" value="Bensin">Bensin</option>
-						<option title="Utgift" value="EL">EL</option>
-						<option title="Utgift" value="Försäkringar">Försäkringar</option>
-						<option title="Utgift" value="Gardiner">Gardiner</option>
-						<option title="Inkomst" value="Gåvor">Gåvor</option>
-						<option title="Utgift" value="Hemtelefoni">Hemtelefoni</option>
-						<option title="Utgift" value="Internet">Internet</option>
-						<option title="Utgift" value="Kläder">Kläder</option>
-						<option title="Inkomst" value="Lön">Lön</option>
-						<option title="Utgift" value="Mat">Mat</option>
-						<option title="Utgift" value="Mediciner">Mediciner</option>
-						<option title="Utgift" value="Mobiltelefoni">Mobiltelefoni</option>
-						<option title="Inkomst" value="Pension">Pension</option>
-						<option title="Utgift" value="Prydnadssaker">Prydnadssaker</option>
-						<option title="Utgift" value="Restaurangmat">Restaurangmat</option>
-						<option title="Utgift" value="Skor">Skor</option>
-						<option title="Inkomst" value="Sparande">Sparande</option>
-						<option title="Utgift" value="Tidningar">Tidningar</option>
-						<option title="Utgift" value="Värme">Värme</option>
+						<option value="Utgift">Alkoholhaltiga drycker</option>
+						<option value="Utgift">Bensin</option>
+						<option value="Utgift">EL</option>
+						<option value="Utgift">Försäkringar</option>
+						<option value="Utgift">Gardiner</option>
+						<option value="Inkomst">Gåvor</option>
+						<option value="Utgift">Hemtelefoni</option>
+						<option value="Utgift">Internet</option>
+						<option value="Utgift">Kläder</option>
+						<option value="Inkomst">Lön</option>
+						<option value="Utgift">Mat</option>
+						<option value="Utgift">Mediciner</option>
+						<option value="Utgift">Mobiltelefoni</option>
+						<option value="Inkomst">Pension</option>
+						<option value="Utgift">Prydnadssaker</option>
+						<option value="Utgift">Restaurangmat</option>
+						<option value="Utgift"">Skor</option>
+						<option value="Inkomst">Sparande</option>
+						<option value="Utgift">Tidningar</option>
+						<option value="Utgift">Värme</option>
 					</select>
 				</div>
 
@@ -50,7 +50,7 @@
 
 			<p>
 				<br /><br /><br />
-           		<canvas id="income_outcome_graph" width="500" height="500"></canvas>
+           		<canvas id="income_outcome_graph" width="600" height="300"></canvas>
 			</p>
 
 			<p>
@@ -58,7 +58,8 @@
 					<thead>
 						<tr>
 							<th>Kategori:</th>
-							<th scope="col">Värde:</th>
+							<th>Typ:</th>
+							<th>Värde:</th>
 							<th>&nbsp;</th>
 						</tr>
 					</thead>
@@ -68,7 +69,7 @@
 			</p>
         </script>	
 
-		<div class="baseContainer">
+		<div id="base" class="baseContainer">
 			<h1>An idiots budget</h1>	
 			<div id="basePlaceholder"></div>		      
 		</div>

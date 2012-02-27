@@ -7,7 +7,7 @@ var view_start = Backbone.View.extend
 	},
 
 	events: {
-    	'click #send_post': 'addBudgetPost'
+    	'click #send_post': 'addBudgetPost',
   	},
 
 	render: function()
@@ -18,16 +18,27 @@ var view_start = Backbone.View.extend
 
 	addBudgetPost: function()
 	{
-		this.select_category = this.$('#select_category').val();
-		this.input_value = this.$('#input_value').val();
+		this.select_category = $('#select_category :selected').text();
+		this.select_type = $('#select_category').val();
+		this.input_value = $('#input_value').val();
 
-		if (this.select_category != '' && this.input_value != ')
-		{
-			this.collection_budget_posts.add
+		if (this.select_category != '' && this.input_value != '')
+		{	
+			var model = new model_budget_post
 			({
-				category: this.select_category, 
-				value: this.input_value,
+				category: this.select_category,
+				type: this.select_type,
+				value: this.input_value
 			});
+
+			(function(a_post)
+			{
+				post = _.last(a_post.toJSON(), [1])[0];
+				new view_budget_post({id: '#budgetItems', model: post});
+			})
+			(this.collection_budget_posts.add(model));
+
+			model.save();
 	
 			this.$('#select_category').val('');
 			this.$('#input_value').val('');
@@ -42,7 +53,7 @@ var view_start = Backbone.View.extend
 	
 	drawDiagram: function(a_incomes, a_outcomes)
 	{
-		outputDiagram = new Bluff.Pie('income_outcome_graph', '500x500');
+		outputDiagram = new Bluff.Pie('income_outcome_graph', '600x300');
 
 		outputDiagram.set_theme
 		({
@@ -61,27 +72,32 @@ var view_start = Backbone.View.extend
 	{
 		incomes = 0;
 		outcomes = 0;
+		color = '';
 
 		$('tbody').html('');
 
 		_.each(this.collection_budget_posts.toJSON(), function(a_post)
 		{
-			this.$('table').append
-			(
-				'<tr>'
-				+ '<td>' + a_post.category + '</td>'
-				+ '<td>' + a_post.value + '</td>'
-				+ '</tr>'
-			);
-
 			if (a_post.type == 'Inkomst')
 			{
-				incomes = a_post.value; 
+				incomes += parseInt(a_post.value);
+				color = 'income';
 			}
 			else if (a_post.type == 'Utgift')
 			{
-				outcomes = a_post.value; 
+				outcomes += parseInt(a_post.value); 
+				color = 'outcome';
 			}
+
+			this.$('table').append
+			(
+				'<tr class=' + color + '>'
+				+ '<td>' + a_post.category + '</td>'
+				+ '<td>' + a_post.type + '</td>'
+				+ '<td>' + a_post.value + '</td>'
+				+ '<td><button class="t">Ta bort</button></td>'
+				+ '</tr>'
+			);
 		});
 
 		this.drawDiagram(incomes, outcomes);

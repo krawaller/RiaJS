@@ -1,6 +1,6 @@
 body
 {
-	background-color: #ffffff;
+	background-color: #cccccc;
 	font-family: verdana;
 	font-size: 10px;
 	text-align: center;
@@ -8,7 +8,9 @@ body
 
 .baseContainer, table
 {
-	margin: 0 auto;
+	background-color: #ffffff;
+	margin: 20px auto;
+	padding: 20px;
 	width: 600px;
 }
 
@@ -26,16 +28,18 @@ body
 
 input[type=text], select
 {
-	width: 170px;
+	width: 259px;
 	border: 1px solid #cccccc;
 }
 
-.fail
+.income
 {
-	background-color: #ff0000;
+	background-color: #00ff00;
+	color: #000000;
 }
 
-.good
+.outcome
 {
-	background-color: #ffffff;
+	background-color: #ff0000;
+	color: #ffffff;
 }
