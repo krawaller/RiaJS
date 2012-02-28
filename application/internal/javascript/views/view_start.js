@@ -4,6 +4,7 @@ var view_start = Backbone.View.extend
 	{
 		this.template = _.template($('#start').html());
 		this.collection_budget_posts = a_collection;
+		this.collection_budget_posts.on('destroy', this.fillDiagram, this);
 	},
 
 	events: {
@@ -14,7 +15,8 @@ var view_start = Backbone.View.extend
 	render: function()
 	{
 		$(this.el).html(this.template);
-		this.fillWithData();
+		this.collection_budget_posts.each(this.addSingleItem);
+		this.fillDiagram();
 	},
 
 	addBudgetPostWithKey: function(a_key)
@@ -40,19 +42,15 @@ var view_start = Backbone.View.extend
 				value: this.input_value
 			});
 
-			(function(a_post)
-			{
-				post = _.last(a_post.toJSON(), [1])[0];
-				new view_budget_post({id: '#budgetItems', model: post});
-			})
-			(this.collection_budget_posts.add(model));
+			this.collection_budget_posts.add(model);
 
 			model.save();
 	
 			this.$('#select_category').val('');
 			this.$('#input_value').val('');
 
-			this.fillWithData();
+			this.addSingleItem(model);
+			this.fillDiagram();
 		}
 		else
 		{
@@ -62,57 +60,63 @@ var view_start = Backbone.View.extend
 	
 	drawDiagram: function(a_incomes, a_outcomes)
 	{
-		outputDiagram = new Bluff.Pie('income_outcome_graph', '600x300');
+		this.outputDiagram = new Bluff.Pie('income_outcome_graph', '600x300');
 
-		outputDiagram.set_theme
+		this.outputDiagram.set_theme
 		({
 	    	marker_color: '#000000',
 	    	font_color: '#000000',
 	    	background_colors: ['#ffffff', '#ffffff']
 	  	});
 	
-	    outputDiagram.data('Inkomster', [parseInt(a_incomes)], '#00ff00');
-	    outputDiagram.data('Utgifter', [parseInt(a_outcomes)], '#ff0000');
+	    this.outputDiagram.data('Inkomster', [parseInt(a_incomes)], '#00ff00');
+	    this.outputDiagram.data('Utgifter', [parseInt(a_outcomes)], '#ff0000');
 	
-	    outputDiagram.draw();
+	    this.outputDiagram.draw();
 	},
 
-	fillWithData: function()
+	addSingleItem: function(a_post)
+	{
+		$('#budgetItems').append(new view_budget_post({model: a_post}).el);
+	},
+
+	fillDiagram: function()
 	{
 		incomes = 0;
 		outcomes = 0;
-		color = '';
 
-		$('tbody').html('');
-
-		_.each(this.collection_budget_posts.toJSON(), function(a_post)
+		if (this.collection_budget_posts.length == 0)
 		{
-			if (a_post.type == 'Inkomst')
-			{
-				incomes += parseInt(a_post.value);
-				color = 'income';
-			}
-			else if (a_post.type == 'Utgift')
-			{
-				outcomes += parseInt(a_post.value); 
-				color = 'outcome';
-			}
+			this.$('#budgetOutput').hide();
+		}
+		else
+		{
+			this.$('#budgetOutput').show();
+		}
 
-			this.$('table').append
-			(
-				'<tr class=' + color + '>'
-				+ '<td>' + a_post.category + '</td>'
-				+ '<td>' + a_post.type + '</td>'
-				+ '<td>' + a_post.value + '</td>'
-				+ '<td><button class="t">Ta bort</button></td>'
-				+ '</tr>'
-			);
+		this.collection_budget_posts.each(function(a_post)
+		{
+			post = a_post.toJSON();
+		
+			if (post.type == 'Inkomst')
+			{
+				incomes += parseInt(post.value);
+			}
+			else if (post.type == 'Utgift')
+			{
+				outcomes += parseInt(post.value);
+			}
 		});
 
 		if (incomes != 0 || outcomes != 0)
 		{
 			$('#budgetSummaryPlaceholder').show();
 			$('#budgetSummary').html((parseInt(incomes) - parseInt(outcomes)) + ' kr');
+		}
+		else
+		{
+			$('#budgetSummaryPlaceholder').hide();
+			$('#budgetSummary').html('');
 		}
 
 		this.drawDiagram(incomes, outcomes);

@@ -16,6 +16,8 @@ body
     -webkit-border-radius: 50px;
     -khtml-border-radius: 50px;
     border-radius: 50px;
+	float: center;
+	overflow: hidden;
 }
 
 .left
@@ -32,7 +34,7 @@ body
 
 input[type=text], select
 {
-	width: 259px;
+	width: 245px;
 	border: 1px solid #cccccc;
 }
 

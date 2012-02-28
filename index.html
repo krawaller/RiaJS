@@ -49,32 +49,34 @@
 				</div>				
 			</p>
 
-			<p>
-				<br /><br /><br />
-           		<canvas id="income_outcome_graph" width="600" height="300"></canvas>
-			</p>
-
-			<p>
-				<div id="budgetSummaryPlaceholder">
-					<h3>Kvar denna månad:</h3> 
-					<h1 id="budgetSummary"></h1>
-				</div>
-			</p>
-
-			<p>
-				<table id="budgetItems">
-					<thead>
-						<tr>
-							<th>Kategori:</th>
-							<th>Typ:</th>
-							<th>Värde:</th>
-							<th>&nbsp;</th>
-						</tr>
-					</thead>
-					<tbody>
-					</tbody>
-				</table>
-			</p>
+			<div id="budgetOutput">
+				<p>
+					<br /><br /><br />
+	           		<canvas id="income_outcome_graph"></canvas>
+				</p>
+	
+				<p>
+					<div id="budgetSummaryPlaceholder">
+						<h3>Kvar denna månad:</h3> 
+						<h1 id="budgetSummary"></h1>
+					</div>
+				</p>
+	
+				<p>
+					<table>
+						<thead>
+							<tr>
+								<th>Kategori:</th>
+								<th>Typ:</th>
+								<th>Värde:</th>
+								<th>&nbsp;</th>
+							</tr>
+						</thead>
+						<tbody id="budgetItems">
+						</tbody>
+					</table>
+				</p>
+			</div>
         </script>	
 
 		<div id="base" class="baseContainer">
