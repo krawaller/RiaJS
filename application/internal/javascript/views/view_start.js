@@ -5,6 +5,7 @@ var view_start = Backbone.View.extend
 		this.template = _.template($('#start').html());
 		this.collection_budget_posts = a_collection;
 		this.collection_budget_posts.on('destroy', this.fillDiagram, this);
+		this.collection_budget_posts.on('change', this.render, this);
 	},
 
 	events: {
@@ -50,11 +51,11 @@ var view_start = Backbone.View.extend
 			this.$('#input_value').val('');
 
 			this.addSingleItem(model);
-			this.fillDiagram();
+			this.render();
 		}
 		else
 		{
-			alert('Du måste fylla i samtliga fält!');
+			apprise('Du måste fylla i samtliga fält!', {'animate': 'true'});
 		}
 	},
 	
@@ -79,7 +80,7 @@ var view_start = Backbone.View.extend
 	{
 		$('#budgetItems').append(new view_budget_post({model: a_post}).el);
 	},
-
+	
 	fillDiagram: function()
 	{
 		incomes = 0;

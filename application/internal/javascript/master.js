@@ -9,6 +9,7 @@ head.js
 	libpath + "backbone/backbone.localStorage.js",
 	libpath + "bluff/js-class.js",
 	libpath + "bluff/bluff.js",
+	libpath + "apprise/apprise.js",
 	srcpath + "routers/router_master.js",
 	srcpath + "views/view_start.js",
 	srcpath + "collections/collection_budget_posts.js",
