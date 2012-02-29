@@ -6,6 +6,13 @@ body
 	text-align: center;
 }
 
+td
+{
+	background-color: #eeeeee;
+	padding: 3px;
+	font-weight: bold;
+}
+
 .baseContainer, table
 {
 	background-color: #ffffff;
@@ -18,6 +25,14 @@ body
     border-radius: 50px;
 	float: center;
 	overflow: hidden;
+}
+
+#placeholderInfo
+{
+	padding-top: 20px;
+	float: center;
+	width: 500px;
+	margin: 0 auto;
 }
 
 .left
@@ -50,17 +65,34 @@ input[type=text], select
 	color: #ffffff;
 }
 
-#budgetSummaryPlaceholder
+#budgetSummaryIncomePlaceholder, #budgetSummaryOutcomePlaceholder
+{
+	width: 230px;
+}
+
+#budgetSummaryIncomePlaceholder, #budgetSummaryOutcomePlaceholder
 {
 	display: none;
 }
 
-#budgetSummary
+#budgetSummaryIncome, #budgetSummaryOutcome
 {
 	font-size: 30px;
 }
 
+#budgetSummaryIncomePlaceholder
+{
+	float: left;
+	padding: 10px;
+}
+
+#budgetSummaryOutcomePlaceholder
+{
+	float: right;
+	padding: 10px;
+}
+
 h3
 {
-	margin-top: 60px;
+	//margin-top: 60px;
 }

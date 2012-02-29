@@ -55,7 +55,7 @@ var view_start = Backbone.View.extend
 		}
 		else
 		{
-			apprise('Du måste fylla i samtliga fält!', {'animate': 'true'});
+			apprise('Du måste fylla i samtliga fält!');
 		}
 	},
 	
@@ -111,13 +111,19 @@ var view_start = Backbone.View.extend
 
 		if (incomes != 0 || outcomes != 0)
 		{
-			$('#budgetSummaryPlaceholder').show();
-			$('#budgetSummary').html((parseInt(incomes) - parseInt(outcomes)) + ' kr');
+			$('#budgetSummaryIncomePlaceholder').show();
+			$('#budgetSummaryIncome').html((parseInt(incomes) - parseInt(outcomes)) + ' kr');
+
+			$('#budgetSummaryOutcomePlaceholder').show();
+			$('#budgetSummaryOutcome').html(parseInt(outcomes) + ' kr');
 		}
 		else
 		{
-			$('#budgetSummaryPlaceholder').hide();
-			$('#budgetSummary').html('');
+			$('#budgetSummaryIncomePlaceholder').hide();
+			$('#budgetSummaryIncome').html('');
+
+			$('#budgetSummaryOutcomePlaceholder').hide();
+			$('#budgetSummaryOutcome').html('');
 		}
 
 		this.drawDiagram(incomes, outcomes);

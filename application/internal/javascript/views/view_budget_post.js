@@ -16,10 +16,10 @@ var view_budget_post = Backbone.View.extend
 			this.color = 'outcome';
 		}
 
-		$(this.el).addClass(this.color).html
+		$(this.el).html
 		(
-			'<td>' + this.post.category + '</td>'
-			+ '<td>' + this.post.type + '</td>'
+			'<td class="' + this.color + '">' + this.post.type + '</td>'
+			+ '<td>' + this.post.category + '</td>'
 			+ '<td>' + this.post.value + ' kr</td>'
 			+ '<td><button class="changeItemValue">Ändra värde</button>'
 			+ '<button class="deleteItem">Ta bort</button></td>'
@@ -37,7 +37,7 @@ var view_budget_post = Backbone.View.extend
 		var thisPost = this.model;
 
 		apprise('Vill du ta bort budgetposten bestående av <b>' + this.post.category.toLowerCase() + '</b> på <b>' + this.post.value + ' kr</b>', 
-		{'verify':true, 'textYes':'Ja', 'textNo':'Nej', 'animate':'true'}, function(a_removepost)
+		{'verify':true, 'textYes':'Ja', 'textNo':'Nej'}, function(a_removepost)
 		{
 			if (a_removepost == true)
 			{
@@ -58,7 +58,7 @@ var view_budget_post = Backbone.View.extend
 
 		apprise('Skriv in vad du vill ändra värdet på budgetposten bestående av <b>' 
 		+ this.post.category.toLowerCase() + '</b> på <b>'  + this.post.value + ' kr</b> till. <br />Och tryck sedan på <b>Spara</b> för att spara detta.'
-		+ ' Eller <b>Avbryt</b> för att ha kvar det gamla värdet!', {'input':' ', 'textOk':'Spara', 'textCancel':'Avbryt', 'animate':'true'}, function(a_changepost)
+		+ ' Eller <b>Avbryt</b> för att ha kvar det gamla värdet!', {'input':' ', 'textOk':'Spara', 'textCancel':'Avbryt'}, function(a_changepost)
 		{
 			if (a_changepost != false)
 			{
