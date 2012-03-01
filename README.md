@@ -4,6 +4,8 @@
 
 - index.html = Filen som drar igång hela applikationen med stilmallar osv
 
+## Externa filer (filer som hör till mitt projekt, skapade av andra)
+
 - external/css/apprise/apprise.css = Stilmall för dialogrutorna, som biblioteket apprise skapar
 
 - external/javascript/libs/apprise/apprise.js = Bibliotek för apprise (dialogrutor: alert osv)
@@ -21,5 +23,3 @@
 - external/javascript/libs/jquery/jquery.js = Bibliotek för jquery
 
 - external/javascript/libs/underscore/underscore.js = Bibliotek för jquery
-
-## Externa filer (filer som hör till mitt projekt, skapade av andra)
