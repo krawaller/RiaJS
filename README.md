@@ -2,7 +2,7 @@
 
 ## Interna filer (filer som hör till mitt projekt, skapade av mig)
 
-	- index.html = Filen som drar igång hela applikationen med stilmallar osv
+- index.html = Filen som drar igång hela applikationen med stilmallar osv
 
 - external/css/apprise/apprise.css = Stilmall för dialogrutorna, som biblioteket apprise skapar
 
