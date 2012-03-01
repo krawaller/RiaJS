@@ -1,3 +1,4 @@
+/* Body styles */
 body
 {
 	background-color: #cccccc;
@@ -6,6 +7,7 @@ body
 	text-align: center;
 }
 
+/* Styles for table-cells */
 td
 {
 	background-color: #eeeeee;
@@ -13,6 +15,7 @@ td
 	font-weight: bold;
 }
 
+/* Styles for the container and table with budgetitems */
 .baseContainer, table
 {
 	background-color: #ffffff;
@@ -27,6 +30,7 @@ td
 	overflow: hidden;
 }
 
+/* Styles for the placeholder who holds the diagram */
 #placeholderInfo
 {
 	padding-top: 20px;
@@ -35,6 +39,7 @@ td
 	margin: 0 auto;
 }
 
+/* Styles for make the form-elements to go inline */
 .left
 {
 	float: left;
@@ -42,57 +47,50 @@ td
 	text-align: left;
 }
 
-.right
-{
-	float: right;
-}
-
+/* Styles for some of the form-elements */
 input[type=text], select
 {
 	width: 245px;
 	border: 1px solid #cccccc;
 }
 
+/* Styles for making a row in the budgetitems green */
 .income
 {
 	background-color: #00ff00;
 	color: #000000;
 }
 
+/* Styles for making a row in the budgetitems red */
 .outcome
 {
 	background-color: #ff0000;
 	color: #ffffff;
 }
 
+/* Styles for the left-label money thing etc */
 #budgetSummaryIncomePlaceholder, #budgetSummaryOutcomePlaceholder
 {
 	width: 230px;
-}
-
-#budgetSummaryIncomePlaceholder, #budgetSummaryOutcomePlaceholder
-{
 	display: none;
 }
 
+/* Styles for the left-label money thing etc */
 #budgetSummaryIncome, #budgetSummaryOutcome
 {
 	font-size: 30px;
 }
 
+/* Styles for the left-label money thing etc */
 #budgetSummaryIncomePlaceholder
 {
 	float: left;
 	padding: 10px;
 }
 
+/* Styles for the left-label money thing etc */
 #budgetSummaryOutcomePlaceholder
 {
 	float: right;
 	padding: 10px;
-}
-
-h3
-{
-	//margin-top: 60px;
 }

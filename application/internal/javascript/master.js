@@ -1,6 +1,7 @@
-var libpath = "http://localhost:8888/application/external/javascript/libs/";
-var srcpath = "http://localhost:8888/application/internal/javascript/";
+var libpath = document.location + "application/external/javascript/libs/";
+var srcpath = document.location + "application/internal/javascript/";
 
+// Load all the files (external/internal) the project are using
 head.js
 (
 	libpath + "jquery/jquery.js",
@@ -17,6 +18,8 @@ head.js
 	srcpath + "views/view_budget_post.js"
 );
 
+// Start the whole thing by calling the router and
+// the history feature in backbone
 head.ready(function()
 {
 	this.router_master = new router_master();

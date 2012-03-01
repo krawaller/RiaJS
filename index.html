@@ -8,7 +8,7 @@
 		<link rel="stylesheet" type="text/css" href="application/external/css/apprise/apprise.css" />
 	</head>
 	<body>
-		<!-- Template for the default view / first view -->
+		<!-- Template for the default, and only, view -->
 		<script type="text/template" id="start">
 			<p>
 				<div class="left">
@@ -63,17 +63,17 @@
 				<p>
 					<div id="placeholderInfo">
 						<div id="budgetSummaryIncomePlaceholder">
-							<h3>Kvar denna månad:</h3> 
+							<h3>Kvar:</h3> 
 							<h1 id="budgetSummaryIncome"></h1>
 						</div>
 	
 						<div id="budgetSummaryOutcomePlaceholder">
-							<h3>Utgifter denna månad:</h3> 
+							<h3>Totala utgifter:</h3> 
 							<h1 id="budgetSummaryOutcome"></h1>
 						</div>
 					</div>
 				</p>
-	
+
 				<p>
 					<table>
 						<thead>
@@ -89,8 +89,9 @@
 					</table>
 				</p>
 			</div>
-        </script>	
+        </script>
 
+		<!-- Placeholder for where to place the views -->
 		<div id="base" class="baseContainer">
 			<h1>An idiots budget</h1>	
 			<div id="basePlaceholder"></div>		      
